@@ -3,10 +3,10 @@
  *
  * NODE MAP (57 stations, nodes 0-56):
  *
- * --- BLUE LINE (Line 1) | Dakshineswar to Kavi Subhash ---
+ * BLUE LINE (Line 1) | Dakshineswar to Kavi Subhash
  *  0  Dakshineswar
  *  1  Baranagar
- *  2  Noapara              [interchange: Yellow Line node 50]
+ *  2  Noapara[interchange: Yellow Line node 50]
  *  3  Dum_Dum
  *  4  Belgachhia
  *  5  Shyambazar
@@ -15,7 +15,7 @@
  *  8  MG_Road
  *  9  Central
  * 10  Chandni_Chowk
- * 11  Esplanade            [interchange: Green Line node 31]
+ * 11  Esplanade[interchange: Green Line node 31]
  * 12  Park_Street
  * 13  Maidan
  * 14  Rabindra_Sadan
@@ -29,23 +29,21 @@
  * 22  Gitanjali
  * 23  Kavi_Nazrul
  * 24  Shahid_Khudiram
- * 25  Kavi_Subhash         [interchange: Orange Line node 38]
- *
- * --- GREEN LINE (Line 2) | Howrah Maidan to Salt Lake Sector-V ---
- * 26  Howrah_Maidan        [interchange: Orange Line node 47]
+ * 25  Kavi_Subhash[interchange: Orange Line node 38]
+ *GREEN LINE (Line 2) | Howrah Maidan to Salt Lake Sector-V
+ * 26  Howrah_Maidan[interchange: Orange Line node 47]
  * 27  Howrah
  * 28  Mahakaran
- * 29  Esplanade_GL         [same physical station as node 11, edge weight 0 treated as 1]
- * 30  Sealdah              [interchange: Orange Line node 45]
- * 31  Phoolbagan           [interchange: Orange Line node 44]
+ * 29  Esplanade_GL [same physical station as node 11, edge weight 0 treated as 1]
+ * 30  Sealdah[interchange: Orange Line node 45]
+ * 31  Phoolbagan[interchange: Orange Line node 44]
  * 32  SV_Marg
  * 33  Karunamoyee
  * 34  Central_Park
  * 35  City_Centre
  * 36  Bengal_Chemical
  * 37  Salt_Lake_Sector_V
- *
- * --- PURPLE LINE (Line 3) | Joka to Majerhat ---
+ * PURPLE LINE (Line 3) | Joka to Majerhat
  * 38  Joka
  * 39  Thakurpukur
  * 40  Sakherbazar
@@ -53,23 +51,20 @@
  * 42  Behala_Bazar
  * 43  Taratala
  * 44  Majerhat
- *
- * --- ORANGE LINE (Line 6) | Kavi Subhash to Hemanta Mukhopadhyay ---
- * 45  Kavi_Subhash_OL      [interchange with Blue Line node 25]
+ * ORANGE LINE (Line 6)[Kavi Subhash to Hemanta Mukhopadhyay ]
+ * 45  Kavi_Subhash_OL[interchange with Blue Line node 25]
  * 46  Satyajit_Ray
  * 47  Kazi_Nazrul_Islam
  * 48  Hemanta_Mukhopadhyay
  * 49  Beleghata
- * 50  Phoolbagan_OL        [interchange with Green Line node 31]
- * 51  Sealdah_OL           [interchange with Green Line node 30]
- * 52  Esplanade_OL         [interchange with Blue Line node 11 & Green Line node 29]
- * 53  Howrah_Maidan_OL     [interchange with Green Line node 26]
- *
- * --- YELLOW LINE (Line 4) | Noapara to Jai Hind ---
- * 54  Noapara_YL           [interchange with Blue Line node 2]
+ * 50  Phoolbagan_OL [interchange with Green Line node 31]
+ * 51  Sealdah_OL[interchange with Green Line node 30]
+ * 52  Esplanade_OL [interchange with Blue Line node 11 & Green Line node 29]
+ * 53  Howrah_Maidan_OL [interchange with Green Line node 26]
+ * YELLOW LINE (Line 4) | Noapara to Jai Hind
+ * 54  Noapara_YL [interchange with Blue Line node 2]
  * 55  Bagjola
  * 56  Jai_Hind
- *
  * INTERCHANGE EDGES (transfer between lines, weight = 1):
  *   Blue  node 11  <-> Green  node 29  (Esplanade)
  *   Blue  node 25  <-> Orange node 45  (Kavi Subhash)
@@ -133,17 +128,14 @@ void dijkstra(int graph[N][N], int source, string stations[N])
 }
 
 int main()
-{
-    // 57x57 adjacency matrix, all zeros initially
+{ // 57x57 adjacency matrix, all zeros initially
     int graph[N][N] = {};
-
     // Helper lambda to add undirected edge
     auto addEdge = [&](int u, int v) {
         graph[u][v] = 1;
         graph[v][u] = 1;
     };
-
-    // ── BLUE LINE (nodes 0-25) ──────────────────────────────────────
+    // BLUE LINE (nodes 0-25) ─
     addEdge(0, 1);   // Dakshineswar - Baranagar
     addEdge(1, 2);   // Baranagar - Noapara
     addEdge(2, 3);   // Noapara - Dum_Dum
@@ -169,8 +161,7 @@ int main()
     addEdge(22, 23); // Gitanjali - Kavi_Nazrul
     addEdge(23, 24); // Kavi_Nazrul - Shahid_Khudiram
     addEdge(24, 25); // Shahid_Khudiram - Kavi_Subhash
-
-    // ── GREEN LINE (nodes 26-37) ────────────────────────────────────
+    // GREEN LINE (nodes 26-37) 
     addEdge(26, 27); // Howrah_Maidan - Howrah
     addEdge(27, 28); // Howrah - Mahakaran
     addEdge(28, 29); // Mahakaran - Esplanade_GL
@@ -183,7 +174,7 @@ int main()
     addEdge(35, 36); // City_Centre - Bengal_Chemical
     addEdge(36, 37); // Bengal_Chemical - Salt_Lake_Sector_V
 
-    // ── PURPLE LINE (nodes 38-44) ───────────────────────────────────
+    // PURPLE LINE (nodes 38-44) 
     addEdge(38, 39); // Joka - Thakurpukur
     addEdge(39, 40); // Thakurpukur - Sakherbazar
     addEdge(40, 41); // Sakherbazar - Behala_Chowrasta
@@ -191,7 +182,7 @@ int main()
     addEdge(42, 43); // Behala_Bazar - Taratala
     addEdge(43, 44); // Taratala - Majerhat
 
-    // ── ORANGE LINE (nodes 45-53) ───────────────────────────────────
+    // ORANGE LINE (nodes 45-53)
     addEdge(45, 46); // Kavi_Subhash_OL - Satyajit_Ray
     addEdge(46, 47); // Satyajit_Ray - Kazi_Nazrul_Islam
     addEdge(47, 48); // Kazi_Nazrul_Islam - Hemanta_Mukhopadhyay
@@ -201,11 +192,11 @@ int main()
     addEdge(51, 52); // Sealdah_OL - Esplanade_OL
     addEdge(52, 53); // Esplanade_OL - Howrah_Maidan_OL
 
-    // ── YELLOW LINE (nodes 54-56) ───────────────────────────────────
+    // YELLOW LINE (nodes 54-56)
     addEdge(54, 55); // Noapara_YL - Bagjola
     addEdge(55, 56); // Bagjola - Jai_Hind
 
-    // ── INTERCHANGE EDGES (cross-line transfers) ────────────────────
+    //  INTERCHANGE EDGES (cross-line transfers)
     addEdge(11, 29); // Esplanade: Blue <-> Green
     addEdge(11, 52); // Esplanade: Blue <-> Orange
     addEdge(29, 52); // Esplanade: Green <-> Orange
@@ -214,7 +205,6 @@ int main()
     addEdge(30, 51); // Sealdah: Green <-> Orange
     addEdge(31, 50); // Phoolbagan: Green <-> Orange
     addEdge(2,  54); // Noapara: Blue <-> Yellow
-
     string stations[N] = {
         // Blue Line (0-25)
         "Dakshineswar",
